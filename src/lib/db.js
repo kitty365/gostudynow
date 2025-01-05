@@ -229,23 +229,6 @@ async function getSession(id) {
   }
 
   // get lecturer by id
-  async function getLecturer(id) {
-    let lecturer = null;
-    try {
-      const collection = db.collection("lecturers");
-      const query = { _id: new ObjectId(id) }; // Filter by id
-      lecturer = await collection.findOne(query);
-
-      if (!lecturer) {
-        console.log("No lecturer found with id: " + id);
-      } else {
-        lecturer._id = lecturer._id.toString(); // Convert ObjectId to String
-      }
-    } catch (error) {
-      console.log("Error fetching lecturer by id:", error.message); // Improved error handling
-    }
-    return lecturer;
-  }
 
   // update lecturer
   async function updateLecturer(id, updatedLecturer) {
@@ -282,6 +265,33 @@ async function getSession(id) {
     return null;
   }
 
+  export async function getLecturerById(lecturerId) {
+    try {
+        const lecturer = await db.collection("lecturers").findOne({ _id: new ObjectId(lecturerId) });
+        if (lecturer) {
+            lecturer._id = lecturer._id.toString(); // _id in String umwandeln
+        }
+        return lecturer;
+    } catch (error) {
+        console.error("Error fetching lecturer by ID:", error.message);
+        throw error;
+    }
+}
+
+export async function getModulesByLecturer(lecturerId) {
+    try {
+        const modules = await db.collection("modules").find({ lecturer: lecturerId }).toArray();
+        return modules.map((module) => {
+            module._id = module._id.toString(); // _id in String umwandeln
+            return module;
+        });
+    } catch (error) {
+        console.error("Error fetching modules for lecturer:", error.message);
+        throw error;
+    }
+}
+
+
   export default {
     getSessions,
     getSession,
@@ -295,7 +305,10 @@ async function getSession(id) {
     updateModule,
     createLecturer,
     getLecturers,
-    getLecturer,
+    
     updateLecturer,
-    deleteLecturer
+    deleteLecturer,
+    getLecturerById,
+    getModulesByLecturer
+
   };
