@@ -1,5 +1,5 @@
 import db from "$lib/db.js";
-import { redirect } from "@sveltejs/kit";
+import { redirect } from "@sveltejs/kit"; // Für Weiterleitung
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
@@ -7,21 +7,21 @@ export async function load({ params }) {
         const module = await db.getModule(params.module_id);
 
         if (!module) {
-            console.error("Modul nicht gefunden");
-            throw redirect(303, "/modules"); // Weiterleitung, wenn das Modul nicht gefunden wird
+            console.error("module nicht gefunden");
+            throw redirect(303, "/modules"); // Weiterleitung, wenn die module nicht gefunden wird
         }
 
-        // Falls das Modul einen Lehrer hat, lade die Lehrerdetails
-        if (module.teacher) {
-            const lecturer = await db.getLecturer(module.teacher);
-            module.teacher = lecturer || { _id: module.teacher, name: "Lehrperson nicht gefunden" };
+        // Falls die module ein Modul enthält, lade die Modul-Daten
+        if (module.lecturer) {
+            const lecturer = await db.getLecturer(module.lecturer);
+            module.lecturer = lecturer || { _id: module.lecturer, name: "lecturer nicht gefunden" };
         }
 
         return {
-            module,
+            module
         };
     } catch (error) {
-        console.error("Error loading module:", error.message);
+        console.error("Error loading lecturer:", error.message);
         throw redirect(303, "/modules"); // Weiterleitung bei Fehlern
     }
 }
@@ -33,17 +33,17 @@ export const actions = {
         const id = data.get("id");
 
         try {
-            const deletedId = await db.deleteModule(id); // Modul löschen
+            const deletedId = await db.deleteModule(id); // module löschen
             if (deletedId) {
-                console.log("Modul erfolgreich gelöscht:", deletedId);
+                console.log("module deleted successfully:", deletedId);
                 throw redirect(303, "/modules"); // Weiterleitung zu /modules
             } else {
-                console.error("Das Modul konnte nicht gelöscht werden.");
-                return { success: false, error: "Das Modul konnte nicht gelöscht werden." };
+                console.error("Die module konnte nicht gelöscht werden.");
+                return { success: false, error: "Die module konnte nicht gelöscht werden." };
             }
         } catch (error) {
             console.error("Error deleting module:", error.message);
             return { success: false, error: error.message };
         }
-    },
+    }
 };

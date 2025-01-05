@@ -1,23 +1,29 @@
 <script>
-    export let data; // Daten vom Server: Dozent und seine Module
+    export let data;
+    let lecturer = data.lecturer; // Die lecturer-Daten
+    console.log("Loaded lecturer:", lecturer); // Debugging-Log
+    
 </script>
 
-<a href="/lecturers" class="btn btn-secondary mb-3">Zurück zur Dozentenliste</a>
+<a href="/lecturers" class="btn btn-secondary mb-3">Back</a>
 
-<h1>Dozent: {data.lecturer.name}</h1>
+<h1>{lecturer.name}</h1>
+<div class="row mt-3">
+    <div class="col">
+        <p>Kürzel: {lecturer.kuerzel || "Keine Beschreibung verfügbar"}</p>
+        <p>
+            Module: {lecturer.modules || "Kein module zugewiesen"}
+        
+        </p>
+        <div class="mt-3">
+            <!-- Bearbeiten-Button -->
+            <a href={'/lecturers/edit/' + lecturer._id} class="btn btn-primary">Bearbeiten</a>
 
-<p><strong>Beschreibung:</strong> {data.lecturer.description || "Keine Beschreibung verfügbar."}</p>
-
-<h2>Verknüpfte Module</h2>
-{#if data.modules.length > 0}
-    <ul class="list-group">
-        {#each data.modules as module}
-            <li class="list-group-item">
-                <a href={`/modules/edit/${module._id}`}>{module.name}</a>
-                <p>{module.description}</p>
-            </li>
-        {/each}
-    </ul>
-{:else}
-    <p>Dieser Dozent ist mit keinem Modul verknüpft.</p>
-{/if}
+            <!-- Löschen-Formular -->
+            <form method="POST" action="?/delete" class="d-inline-block ms-2">
+                <input type="hidden" name="id" value={lecturer._id}>
+                <button class="btn btn-danger">Delete lecturer</button>
+            </form>
+        </div>
+    </div>
+</div>

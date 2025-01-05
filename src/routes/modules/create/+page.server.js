@@ -12,7 +12,7 @@ export async function load({ url }) {
         return { elapsedTime, date, modules }; // Rückgabe der benötigten Daten
     } catch (error) {
         console.error("Error loading modules:", error.message);
-        throw redirect(303, "/sessions"); // Weiterleitung bei Fehler
+        throw redirect(303, "/modules"); // Weiterleitung bei Fehler
     }
 }
 

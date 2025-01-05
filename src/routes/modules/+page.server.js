@@ -5,6 +5,4 @@ export async function load() {
     return {
         modules: await db.getModules()
     };
-
-
 }

@@ -1,11 +1,13 @@
 <script>
     export let actionUrl; // URL für das Formular (z. B. ?/create oder ?/update)
     export let lecturer = {}; // Vorbelegte Lehrperson-Daten
+    export let modules = []; // Liste der verfügbaren Module
 
     let name = lecturer.name || "";
-    let email = lecturer.email || "";
-    let phone = lecturer.phone || "";
-    let department = lecturer.department || "";
+    let kuerzel = lecturer.kuerzel || "";
+
+    let selectedModule = lecturer.module || ""; // Lehrer-ID
+    let newModule = "";
 </script>
 
 <form method="POST" action={actionUrl}>
@@ -14,16 +16,24 @@
         <input id="name" name="name" class="form-control" bind:value={name} required />
     </div>
     <div class="mb-3">
-        <label for="email" class="form-label">E-Mail</label>
-        <input id="email" name="email" type="email" class="form-control" bind:value={email} required />
+        <label for="kuerzel" class="form-label">Kürzel</label>
+        <input id="kuerzel" name="kuerzel" class="form-control" bind:value={kuerzel} required />
     </div>
+
     <div class="mb-3">
-        <label for="phone" class="form-label">Telefonnummer</label>
-        <input id="phone" name="phone" class="form-control" bind:value={phone} />
-    </div>
-    <div class="mb-3">
-        <label for="department" class="form-label">Abteilung</label>
-        <input id="department" name="department" class="form-control" bind:value={department} />
-    </div>
+        <label for="module" class="form-label">Modul</label>
+        <select id="module" name="module" class="form-select" bind:value={selectedModule}>
+            <option value="" disabled selected>Modul auswählen</option>
+            {#each modules as module}
+                <option value={module._id}>{module.name}</option>
+            {/each}
+        </select>
+        <input
+            type="text"
+            name="newModule"
+            class="form-control mt-2"
+            placeholder="Oder neues Modul erstellen"
+            bind:value={newModule}
+        />
     <button type="submit" class="btn btn-primary">Speichern</button>
 </form>
