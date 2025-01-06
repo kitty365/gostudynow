@@ -12,13 +12,14 @@ export async function load({ params }) {
         }
 
         let modules = await db.getModulesByLecturer(lecturer._id); // Lade die Module des lecturers
+        console.log("modules:", modules);
         let moduleNames = modules.map((m) => m.name); // Extrahiere die Namen der Module
         lecturer.modules = moduleNames; // Füge die Namen der Module zum lecturer
         // Falls die lecturer ein Modul enthält, lade die Modul-Daten
-        /*if (lecturer.module) {
+        if (lecturer.module) {
             const module = await db.getModule(lecturer.module);
             lecturer.module = module || { _id: lecturer.module, name: "modul nicht gefunden" };
-        }*/
+        }
 
         return {
             lecturer

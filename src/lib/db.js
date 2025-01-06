@@ -167,7 +167,7 @@ export async function deleteModule(id) {
 
 export async function getModulesByLecturer(lecturerId) {
     try {
-        const modules = await db.collection("modules").find({ lecturers: lecturerId }).toArray();
+        const modules = await db.collection("modules").find({ lecturers: new ObjectId(lecturerId) }).toArray();
         return modules.map(convertIdToString).map(convertArrayIdToArrayString);
     } catch (error) {
         console.error("Error fetching modules for lecturer:", error.message);
