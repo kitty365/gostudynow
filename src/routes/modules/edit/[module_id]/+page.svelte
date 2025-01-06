@@ -5,5 +5,5 @@
 
 <a href="/modules" class="btn btn-secondary mb-3">Zurück</a>
 
-<h1>modules bearbeiten</h1>
+<h3>Modul bearbeiten</h3>
 <ModuleForm actionUrl="?/update" module={data.module} lecturers={data.lecturers} />

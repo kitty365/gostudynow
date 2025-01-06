@@ -2,7 +2,6 @@ import { lecturer } from "$lib/components/LecturerCard.svelte";
 import db from "$lib/db.js";
 import { selectedLecturers } from "$lib/components/ModuleForm.svelte";
 
-/** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
     let module = null;
     if (params.module_id) {
@@ -11,7 +10,6 @@ export async function load({ params }) {
             throw new Error("module nicht gefunden");
         }
     }
-
     try {
         const lecturers = await db.getLecturers(); // Lade alle lecturers
         return { module, lecturers }; // Übergib die module und lecturers
@@ -21,7 +19,6 @@ export async function load({ params }) {
     }
 }
 
-/** @type {import('./$types').Actions} */
 export const actions = {
     async update({ request, params }) {
         const data = await request.formData();
@@ -68,14 +65,19 @@ export const actions = {
             lecturerId.push((await db.getLecturerByName(lecturer.name))._id);
         }
         console.log("lecturerId:", lecturerId);
+
+
         const updatedModule = {
-            title: data.get("title"),
-            description: data.get("description"),
-            date: data.get("date"),
+            name: data.get("moduleName"),
+            inhalt: data.get("inhalt"),
+            goals: data.get("goals"),
+            startDate: data.get("startDate"),
+            endDate: data.get("endDate"),
             lecturers: lecturerId,
-            elapsedTime: Number(data.get("elapsedTime")) || 0,
             module: moduleId,
         };
+
+
         console.log("updatedModule:", updatedModule);
 
         try {

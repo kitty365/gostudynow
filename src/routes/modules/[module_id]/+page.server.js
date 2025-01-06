@@ -1,7 +1,6 @@
 import db from "$lib/db.js";
 import { redirect } from "@sveltejs/kit"; // Für Weiterleitung
 
-/** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
     try {
         const module = await db.getModule(params.module_id);
@@ -10,16 +9,21 @@ export async function load({ params }) {
             console.error("module nicht gefunden");
             throw redirect(303, "/modules"); // Weiterleitung, wenn die module nicht gefunden wird
         }
+console.log("modulgv:", module.lecturers); 
 
-        // Falls die module ein Modul enthält, lade die Modul-Daten
-        if (module.lecturer) {
-            const lecturer = await db.getLecturer(module.lecturer);
-            module.lecturer = lecturer || { _id: module.lecturer, name: "lecturer nicht gefunden" };
-        }
 
+       let lecturers = await db.getLecturersByIds(module.lecturers); // Lade die lecturers des module
+       console.log("wieso:", lecturers);
+
+       let lecturerNames = lecturers.map((l) => l.name); // Extrahiere die Namen der lecturers
+       module.lecturers = lecturerNames; // Füge die Namen der lecturers zum module
+console.log("lecttts:", lecturers);
         return {
             module
         };
+
+
+
     } catch (error) {
         console.error("Error loading lecturer:", error.message);
         throw redirect(303, "/modules"); // Weiterleitung bei Fehlern

@@ -140,9 +140,6 @@ export async function updateModule(moduleId, updatedModule) {
     }
 }
 
-
-
-
 export async function deleteModule(id) {
     try {
         const result = await db.collection("modules").deleteOne({ _id: new ObjectId(id) });
@@ -197,12 +194,10 @@ export async function getLecturerById(id) {
     }
 }
 
-export async function createLecturer(lecturerData) {
+// create lecturer
+export async function createLecturer(lecturer) {
     try {
-        const existing = await db.collection("lecturers").findOne({ name: lecturerData.name });
-        if (existing) return existing._id.toString();
-
-        const result = await db.collection("lecturers").insertOne(lecturerData);
+        const result = await db.collection("lecturers").insertOne(lecturer);
         return result.insertedId.toString();
     } catch (error) {
         console.error("Error creating lecturer:", error.message);
@@ -261,12 +256,20 @@ export async function getLecturerByName(name) {
     }
 }
 
-
+// get lecturersbymodules
+export async function getLecturersByModule(moduleId) {
+    try {
+        const lecturers = await db.collection("lecturers").find({ modules: moduleId} ).toArray();
+        return lecturers.map(convertIdToString);
+    } catch (error) {
+        console.error("Error fetching lecturers by modules:", error.message);
+        throw error;
+    }
+}
 
 
 // Exportiere alle Funktionen
 export default {
-    
     getSessions,
     getSession,
     createSession,
@@ -281,9 +284,10 @@ export default {
     getLecturer,
     getLecturers,
     getLecturerById,
-    createLecturer,
+    createLecturer,         
     updateLecturer,
     deleteLecturer,
     getLecturersByIds,
-    getLecturerByName
+    getLecturerByName,
+    getLecturersByModule
 };

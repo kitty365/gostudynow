@@ -6,19 +6,15 @@
 
 <a href="/modules" class="btn btn-secondary mb-3">Back</a>
 
-<h1>{module.title}</h1>
+<h1>{module.name}</h1>
 <div class="row mt-3">
     <div class="col">
-        <p>Beschreibung: {module.description || "Keine Beschreibung verfügbar"}</p>
-        <p>Datum: {module.date || "Kein Datum angegeben"}</p>
-        <p>
-            Lecturer: 
-            {#if module.lecturer}
-                <a href={'/lecturers/' + module.lecturer._id}>{module.lecturer.name}</a>
-            {:else}
-                Kein lecturer zugewiesen
-            {/if}
-        </p>
+        <p>Inhalt: {module.inhalt}</p>
+        <p>Persönliche Ziele: {module.goals}</p>
+        <p>Laufzeit: {module.startDate} bis {module.endDate}</p>
+
+        <p>Dozent: {module.lecturers} </p>
+        
         <div class="mt-3">
             <!-- Bearbeiten-Button -->
             <a href={'/modules/edit/' + module._id} class="btn btn-primary">Bearbeiten</a>
