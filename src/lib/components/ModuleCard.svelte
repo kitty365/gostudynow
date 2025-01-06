@@ -18,7 +18,7 @@
 				<input type="hidden" name="id" value={module._id} />
 				<button class="btn btn-danger">Laufend</button>
 			</form>
-			
+
 		{:else}
 			<form method="POST" action="?/addToCurrent" use:enhance>
 				<input type="hidden" name="id" value={module._id} />

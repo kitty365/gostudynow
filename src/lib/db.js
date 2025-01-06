@@ -132,7 +132,7 @@ export async function createModule(module) {
     }
 }
                                    // moduleId ist string , updatedmodule.lecturers ist array von strings aber wir brauchen array von objectids
-export async function updateModule(moduleId, updatedModule) {
+/* export async function updateModule(moduleId, updatedModule) {
     console.log("bitte "+moduleId);
     try {
         let objectidLecturers = [];
@@ -153,7 +153,27 @@ export async function updateModule(moduleId, updatedModule) {
         throw error;
     }
 }
+*/
 
+export async function updateModule(moduleId, updatedModule) {
+    try {
+        // Wenn lecturers nicht definiert ist, mache nichts mit lecturers
+        if (updatedModule.lecturers) {
+            updatedModule.lecturers = updatedModule.lecturers.map(
+                (lecturer) => new ObjectId(lecturer)
+            );
+        }
+
+        const result = await db.collection("modules").updateOne(
+            { _id: new ObjectId(moduleId) },
+            { $set: updatedModule }
+        );
+        return result.modifiedCount > 0;
+    } catch (error) {
+        console.error("Error updating module:", error.message);
+        throw error;
+    }
+}
 
 export async function deleteModule(id) {
     try {
