@@ -21,9 +21,7 @@ export const actions = {
 
         const updatedLecturer = {
             name: data.get("name"),
-            email: data.get("email"),
-            phone: data.get("phone"),
-            department: data.get("department"),
+            kuerzel: data.get("kuerzel"),
         };
 
         try {

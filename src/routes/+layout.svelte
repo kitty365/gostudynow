@@ -22,10 +22,10 @@
 					<a class="nav-link active" aria-current="page" href="/sessions">Sessions</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="/modules">Modules</a>
+					<a class="nav-link active" aria-current="page" href="/modules">Module</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="/lecturers">Lecturers</a>
+					<a class="nav-link active" aria-current="page" href="/lecturers">Dozenten</a>
 				</li>
 			</ul>
 		</div>

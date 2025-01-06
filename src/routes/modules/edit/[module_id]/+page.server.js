@@ -1,6 +1,5 @@
 import { lecturer } from "$lib/components/LecturerCard.svelte";
 import db from "$lib/db.js";
-import { selectedLecturers } from "$lib/components/ModuleForm.svelte";
 
 export async function load({ params }) {
     let module = null;
@@ -23,18 +22,25 @@ export const actions = {
     async update({ request, params }) {
         const data = await request.formData();
 
-        let selectedModule = data.get("module");
-        let newModule = data.get("newModule");
-        let moduleId = null;
-        let selectedLecturersStringified = data.getAll("selectedLecturer");
+        //let selectedModule = data.get("module");
+        // let newModule = data.get("newModule");
+        // let moduleId = null;
+        let selectedLecturersStringified = data.getAll("selectedLecturer"); // {name: "test", kuerzel: "tst"} => string ()
         let selectedLecturers = []
+        console.log("testttt" + selectedLecturersStringified)
+       // console.log("selectedMoule:", selectedModule);
+
         console.log("selectedLecturersStringified:", selectedLecturersStringified);
+
+
+        // da wir nur string übergeben bekamen, brauchen wir erneut ein array, im falle, dass nur ein lecturer ausgewählt wurde(ist nur ein strin, kein array)
         if (!Array.isArray(selectedLecturersStringified)) {
             selectedLecturersStringified = [selectedLecturersStringified];
         }
         for (let lecturer of selectedLecturersStringified) {
             console.log("lecturer:", lecturer);
             selectedLecturers.push(JSON.parse(lecturer)); // Json.parse macht aus string ein objekt (vorher wurde in ModuleForm Json.stringify aufgerufen um das lecturer objekt yu stringifzen)
+                                                            //um zu vergleichen, ob lecturer bereits in db existiert
         }
         console.log("selectedLecturers:", data);
         console.log("selectedLecturers:", selectedLecturers);
@@ -44,29 +50,36 @@ export const actions = {
         const existingLecturers = await db.getLecturers();
         // Abgleichen
         const notExistingLecturers = []
+
         for (let lecturer of selectedLecturers) {
-            if (!existingLecturers.find((l) => l.name === lecturer)) {
-                notExistingLecturers.push(lecturer);
+            if (!existingLecturers.find((l) => l.name === lecturer.name)) {   // könnte man mit IDCheck optimieren. Wenn ID vorhanden, dann existiert der lecturer bereits, ansonsten nicht.
+                notExistingLecturers.push(lecturer);                            //parser brauchen wir nur um inhalte von form zu server zu übertragen, da wir nur strings übertragen können.(wir habens nucht geschafft / ich weiss nicht wie )
             }
         }
+        console.log("existingLecturers:", existingLecturers);
+        console.log("notExistingLecturers:", notExistingLecturers);
+
         for (let lecturer of notExistingLecturers) {
             await db.createLecturer(lecturer);
         }
 
         // Prüfe, ob ein neues Modul erstellt werden muss
-        if (newModule) {
+        /*if (newModule) {
             moduleId = await db.createModule({ name: newModule });
-        } else if (selectedModule) {
+        } else  if (selectedModule) {
             moduleId = selectedModule;
-        }
+        }*/
+
         console.log("TEST:");
+        // Nur um ids von lecturers zu bekommen
         const lecturerId = [];
+        
         for (let lecturer of selectedLecturers) {
-            lecturerId.push((await db.getLecturerByName(lecturer.name))._id);
-        }
+            lecturerId.push((await db.getLecturerByName(lecturer.name))._id);  // wir überschreiben alle selected erneut, sosnt wäre zu kompliziert, ist am einfachsten
+        }                                                       //wäre überflüssig, wenn wir bei create lecturer die id zurückgeben bekämen. 
         console.log("lecturerId:", lecturerId);
 
-
+        //hat nichts mit ui zu tun
         const updatedModule = {
             name: data.get("moduleName"),
             inhalt: data.get("inhalt"),
@@ -74,7 +87,7 @@ export const actions = {
             startDate: data.get("startDate"),
             endDate: data.get("endDate"),
             lecturers: lecturerId,
-            module: moduleId,
+            // module: selectedModule
         };
 
 

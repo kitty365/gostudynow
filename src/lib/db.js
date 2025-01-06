@@ -7,10 +7,15 @@ await client.connect();
 const db = client.db("studynow");
 
 // Hilfsfunktion: Konvertiere ObjectId zu String
-const convertIdToString = (doc) => {
-    if (doc._id) doc._id = doc._id.toString();
+const convertIdToString = (doc) => {  //doc ist mein modul, (parameter)
+    if (doc._id) doc._id = doc._id.toString(); // _id ist objekt id, ich will es als string haben 
     return doc;
 };
+const convertArrayIdToArrayString = (docs) => {
+    docs.lecturers = docs.lecturers.map((objectId) => objectId.toString());
+    console.log("docs:", docs);
+    return docs;
+}
 
 // **Sessions**
 export async function getSessions() {
@@ -93,7 +98,8 @@ export async function deleteSession(id) {
 export async function getModules() {
     try {
         const modules = await db.collection("modules").find({}).toArray();
-        return modules.map(convertIdToString);
+        modules.map((module) => module.lecturers = module.lecturers || []); //falls ein modul kein lecturer hat. //wir wissen, dass es ein leeres array ist , wir brauchen, da bei erstellen eines moduls, keine lecturers angegeben werden
+        return modules.map(convertIdToString).map(convertArrayIdToArrayString);
     } catch (error) {
         console.error("Error fetching modules:", error.message);
         throw error;
@@ -101,11 +107,11 @@ export async function getModules() {
 }
 
 export async function getModule(id) {
-    try {
+    try {                                                            //   id wert ist immer gleich, objectid objekt kann sich ändern, inhalt muss gleich sein(vorhanden sein)
         const module = await db.collection("modules").findOne({ _id: new ObjectId(id) });
         if (module) {
-            module.lecturers = module.lecturers || [];
-            return convertIdToString(module);
+            module.lecturers = module.lecturers || []; //wir wissen, dass es ein leeres array ist , wir brauchen, da bei erstellen eines moduls, keine lecturers angegeben werden
+            return convertArrayIdToArrayString(convertIdToString(module)); // weil wir meist mit strings arbeiten, aber nicht mit objekteids
         }
         return null;
     } catch (error) {
@@ -125,10 +131,18 @@ export async function createModule(module) {
         throw error;
     }
 }
-
+                                   // moduleId ist string , updatedmodule.lecturers ist array von strings aber wir brauchen array von objectids
 export async function updateModule(moduleId, updatedModule) {
     console.log("bitte "+moduleId);
     try {
+        let objectidLecturers = [];
+        for (let lecturer of updatedModule.lecturers) {
+            objectidLecturers.push(new ObjectId(lecturer));
+        }
+        updatedModule.lecturers = objectidLecturers;
+
+        // updatedModule.lecturers = updatedModule.lecturers.map((lecturer) => new ObjectId(lecturer));
+
         const result = await db.collection("modules").updateOne(
             { _id: new ObjectId(moduleId) },
             { $set: updatedModule }
@@ -139,6 +153,7 @@ export async function updateModule(moduleId, updatedModule) {
         throw error;
     }
 }
+
 
 export async function deleteModule(id) {
     try {
@@ -153,7 +168,7 @@ export async function deleteModule(id) {
 export async function getModulesByLecturer(lecturerId) {
     try {
         const modules = await db.collection("modules").find({ lecturers: lecturerId }).toArray();
-        return modules.map(convertIdToString);
+        return modules.map(convertIdToString).map(convertArrayIdToArrayString);
     } catch (error) {
         console.error("Error fetching modules for lecturer:", error.message);
         throw error;
