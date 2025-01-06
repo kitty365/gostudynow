@@ -6,3 +6,4 @@ export async function load() {
         sessions: await db.getSessions()
     };
 }
+

@@ -116,6 +116,7 @@ export async function getModule(id) {
 
 // create module
 export async function createModule(module) {
+    module.current = false;
     try {
         const result = await db.collection("modules").insertOne(module);
         return result.insertedId.toString();
@@ -124,7 +125,9 @@ export async function createModule(module) {
         throw error;
     }
 }
+
 export async function updateModule(moduleId, updatedModule) {
+    console.log("bitte "+moduleId);
     try {
         const result = await db.collection("modules").updateOne(
             { _id: new ObjectId(moduleId) },
@@ -136,6 +139,7 @@ export async function updateModule(moduleId, updatedModule) {
         throw error;
     }
 }
+
 
 
 
