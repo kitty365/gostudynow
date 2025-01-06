@@ -1,5 +1,5 @@
 <script>
-  import LecturerCard from "$lib/components/lecturerCard.svelte";
+  import LecturerCard from "$lib/components/LecturerCard.svelte";
   let { data } = $props();
 
   console.log("Loaded lecturers:", data.lecturers); // Debugging-Log
