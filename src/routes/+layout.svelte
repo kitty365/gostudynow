@@ -1,7 +1,9 @@
 <script>
 	// CSS für das Layout importieren
-	import '../styles.css';
-	let { children } = $props();
+	import 'bootstrap/dist/css/bootstrap.min.css';
+	import './styles.css';
+    let { children } = $props();
+
 </script>
 
 <!-- Navbar -->
