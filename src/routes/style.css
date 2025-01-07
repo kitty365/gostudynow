@@ -1,0 +1,64 @@
+/* Globale Stile */
+body {
+	font-family: Arial, Helvetica, sans-serif; /* Schriftart */
+    color: royalblue; /* Dunkles Blau für den Text */
+	margin: 0;
+	padding: 0;
+    background-color: beige;
+}
+
+h1 {
+	font-weight: bold;
+	color: rgb(255, 142, 97); /* Dunkleres Blau für Überschriften */
+}
+
+h2, h3, h4 {
+    color: rgb(31, 76, 159); /* Dunkles Blau für Überschriften */
+}
+
+
+/* Bootstrap-Überschreibungen */
+.navbar {
+	background-color: transparent!important; /* Helle Blautöne für die Navbar */
+}
+
+.navbar-brand {
+    color: royalblue!important; /* Dunkelblauer Text für die Navbar-Brand */
+    font-weight: 1000;
+    font-size: 3rem;
+}
+
+.navbar-brand:hover {
+    color: salmon !important; /* Farbe beim Hover */
+}
+
+.nav-link.active {
+    color: royalblue!important; /* Farbe für den aktiven Link */
+    font-weight: bold; /* Optional: Fettgedruckt */
+    font-size: larger;
+    padding-top: 25px;
+  }
+  
+  .nav-link:hover {
+    color: salmon !important; /* Farbe beim Hover */
+  }
+
+  .nav-link:focus {
+    color: #0008ff !important; /* Farbe beim Focus */
+  }
+  
+
+/* Sessions */
+
+.form{
+    color: rgb(31, 76, 159); /* Dunkles Blau für den Text */
+}
+
+
+/* Startseite */
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 10%;
+}

@@ -50,6 +50,7 @@
 		/>
 	</div>
 	<div class="mb-3">
+		
 		<label for="inhalt" class="form-label">Inhalt</label>
 		<textarea id="inhalt" name="inhalt" class="form-control" bind:value={inhalt}></textarea>
 	</div>

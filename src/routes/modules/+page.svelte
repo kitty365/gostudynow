@@ -7,7 +7,7 @@
 			let modulesFiltered = data.modules.filter((module) => module.current);
 			return modulesFiltered;
 		}
-	
+
 		return data.modules;
 	});
 </script>
@@ -16,12 +16,14 @@
 	<input class="form-check-input" type="checkbox" id="filter" bind:checked={filterByCurrent} />
 	<label class="form-check-label" for="filter"> Nur laufende Module anzeigen </label>
 </div>
-<br>
+<br />
 <h1>Module</h1>
-<div class="row mt-3">
-	{#each modules as module}
-		<div class="col-sm-6 col-md-4 col-lg-3 mb-2 gx-2">
-			<ModuleCard {module}></ModuleCard>
-		</div>
-	{/each}
+<div class="container mt-3">
+	<div class="row">
+		{#each modules as module}
+			<div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+				<ModuleCard {module} />
+			</div>
+		{/each}
+	</div>
 </div>

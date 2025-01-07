@@ -15,6 +15,24 @@
     </div>
     <div>Beschreibung: {session.description || "Keine Beschreibung verfügbar"}</div>
     <div>Laufzeit: {formatTime(session.elapsedTime)}</div> <!-- Formatiert -->
-    <div>Datum: {session.date || "Kein Datum angegeben"}</div>
     <div>Modul: {session.module || "Kein Modul"}</div> <!-- Zeigt jetzt den Namen des Moduls -->
 </div>
+
+
+<style>
+
+    .session-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: larger;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+</style>

@@ -19,6 +19,8 @@
 </script>
 
 <form method="POST" action={actionUrl}>
+
+
     <div class="mb-3">
         <label for="title" class="form-label">Titel</label>
         <input id="title" name="title" class="form-control" bind:value={title} required />
@@ -36,7 +38,6 @@
         <input
             id="elapsedTime"
             name="elapsedTime"
-            type="number"
             class="form-control"
             bind:value={elapsedTime}
             readonly
@@ -59,5 +60,6 @@
             bind:value={newModule}
         />
     </div>
+
     <button type="submit" class="btn btn-primary">Speichern</button>
 </form>
