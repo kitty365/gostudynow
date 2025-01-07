@@ -1,8 +1,10 @@
 <script>
+    import { onMount, onDestroy } from 'svelte';
+
 	let time = 0; // Zeit in Sekunden
 	let interval;
 	let isRunning = false;
-	let selectedBackground = 'src/static/pflanze.jpg'; // Standardhintergrundbild
+	let selectedBackground = '/pflanze.jpg'; // Standardhintergrundbild
 
 	// Timer starten/pausieren
 	const toggleTimer = () => {
@@ -62,18 +64,12 @@
 	};
 
 	// events
-	import { onMount, onDestroy } from 'svelte';
     //hier passierts, wenn plötzlich seite gewechselt wird
 	onMount(() => {
 		loadState();
 		document.addEventListener('visibilitychange', handleVisibilityChange);
 	});
 
-    // wir sind nachhtaltig, alles wird gestoppt & zurueckgesetzt
-	onDestroy(() => {
-		document.removeEventListener('visibilitychange', handleVisibilityChange);
-		clearInterval(interval);
-	});
 
 	//speichern und zum create form weiterleiten
 	const handleSaveAndCreate = () => {
@@ -121,27 +117,27 @@
 
 	<div class="background-options">
 
-		<button type="button" on:click={() => changeBackground('src/static/flower.jpg')}>
-			<img src="src/static/flower.jpg" alt="flower" class={selectedBackground === 'src/static/flower.jpg' ? 'selected' : ''}/>
+		<button type="button" on:click={() => changeBackground('/flower.jpg')}>
+			<img src="/flower.jpg" alt="flower" class={selectedBackground === '/flower.jpg' ? 'selected' : ''}/>
 		</button>
 
-		<button type="button" on:click={() => changeBackground('src/static/pflanze.jpg')}>
-			<img src="src/static/pflanze.jpg" alt="pflanze" class={selectedBackground === 'src/static/pflanze.jpg' ? 'selected' : ''}/>
+		<button type="button" on:click={() => changeBackground('/pflanze.jpg')}>
+			<img src="/pflanze.jpg" alt="pflanze" class={selectedBackground === '/pflanze.jpg' ? 'selected' : ''}/>
 		</button>
 
-		<button type="button" on:click={() => changeBackground('src/static/mond.jpg')}>
-			<img src="src/static/mond.jpg" alt="mond" class={selectedBackground === 'src/static/mond.jpg' ? 'selected' : ''}/>
+		<button type="button" on:click={() => changeBackground('/mond.jpg')}>
+			<img src="/mond.jpg" alt="mond" class={selectedBackground === '/mond.jpg' ? 'selected' : ''}/>
 		</button>
 
-		<button type="button" on:click={() => changeBackground('src/static/turm.jpg')}>
-			<img src="src/static/turm.jpg" alt="turm" class={selectedBackground === 'src/static/turm.jpg' ? 'selected' : ''}/>
+		<button type="button" on:click={() => changeBackground('/turm.jpg')}>
+			<img src="/turm.jpg" alt="turm" class={selectedBackground === '/turm.jpg' ? 'selected' : ''}/>
 		</button>
 
-		<button type="button" on:click={() => changeBackground('src/static/stadt.jpg')}>
-			<img src="src/static/stadt.jpg" alt="stadt" class={selectedBackground === 'src/static/stadt.jpg' ? 'selected' : ''}/>
+		<button type="button" on:click={() => changeBackground('/stadt.jpg')}>
+			<img src="/stadt.jpg" alt="stadt" class={selectedBackground === '/stadt.jpg' ? 'selected' : ''}/>
 		</button>
 	</div>
-    
+
 </div>
 
 <style>

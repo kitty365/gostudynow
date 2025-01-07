@@ -1,7 +1,7 @@
 <script>
 	// CSS für das Layout importieren
-	import './style.css';
-
+	import '../styles.css';
+	let { children } = $props();
 </script>
 
 <!-- Navbar -->
@@ -35,7 +35,7 @@
 	</div>
 </nav>
 
-<!-- Hauptinhalt -->
 <div class="container mt-3">
-	<slot />
-</div>
+	{@render children()}
+  </div>
+  
