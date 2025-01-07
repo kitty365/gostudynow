@@ -7,74 +7,72 @@
 	// Timer starten/pausieren
 	const toggleTimer = () => {
 		if (isRunning) {
-			clearInterval(interval); // Timer stoppen
+			clearInterval(interval); //stoppen, zeit soll nicht weiterlaufen ++
 		} else {
 			interval = setInterval(() => {
-				time++; // Zeit erhöhen
-				saveState(); // Laufenden Timer speichern
+				time++;
+				saveState(); //ständig speichern
 			}, 1000);
 		}
-		isRunning = !isRunning; // Zustand umschalten
-		saveState(); // Zustand und Zeit speichern
+		isRunning = !isRunning; //pausieren
+		saveState();
 	};
 
 	// Timer zurücksetzen
 	const resetTimer = () => {
-		clearInterval(interval); // Intervall stoppen
-		time = 0; // Zeit zurücksetzen
-		isRunning = false; // Timer pausieren
-		saveState(); // Zustand speichern
+		clearInterval(interval);
+		time = 0;
+		isRunning = false;
 	};
 
-	// Zustand und Zeit speichern
+	// zustand mit zeit speichern in temporärem speicher des browsers
 	const saveState = () => {
-		sessionStorage.setItem('timer_time', time); // Zeit speichern
-		sessionStorage.setItem('timer_running', isRunning); // Zustand speichern
+		sessionStorage.setItem('timer_time', time);
+		sessionStorage.setItem('timer_running', isRunning);
 	};
 
-	// Zustand und Zeit laden
+	// zustand mit zeit wieder laden
 	const loadState = () => {
 		const savedTime = sessionStorage.getItem('timer_time');
 		const savedRunning = sessionStorage.getItem('timer_running');
 
 		if (savedTime) {
-			time = parseInt(savedTime); // Gespeicherte Zeit laden
+			time = parseInt(savedTime);
 		}
 		if (savedRunning === 'true') {
-			isRunning = true; // Gespeicherten Zustand laden
-			startTimer(); // Timer wieder starten
+			isRunning = true;
+			startTimer(); 
 		}
 	};
-// Timer starten (nur für loadState)
-const startTimer = () => {
+	// funktion sgeht weiter, timer automatisch läuft weiter, eig wird nur noch dieser verwendet
+	const startTimer = () => {
 		interval = setInterval(() => {
-			time++; // Zeit erhöhen
-			saveState(); // Laufenden Timer speichern
+			time++;
+			saveState(); 
 		}, 1000);
 	};
 
 	// Sichtbarkeitsänderung behandeln
 	const handleVisibilityChange = () => {
 		if (document.hidden && isRunning) {
-			clearInterval(interval); // Timer pausieren
-			isRunning = false; // Zustand auf "pausiert" setzen
-			saveState(); // Zeit und Zustand speichern
+			clearInterval(interval); 
+			isRunning = false; 
+			saveState();
 		}
 	};
 
-	// Eventlistener hinzufügen
+	// events
 	import { onMount, onDestroy } from 'svelte';
+    //hier passierts, wenn plötzlich seite gewechselt wird
 	onMount(() => {
-		// Gespeicherten Zustand laden
 		loadState();
-
-		// Eventlistener hinzufügen
 		document.addEventListener('visibilitychange', handleVisibilityChange);
 	});
 
+    // wir sind nachhtaltig, alles wird gestoppt & zurueckgesetzt
 	onDestroy(() => {
 		document.removeEventListener('visibilitychange', handleVisibilityChange);
-		clearInterval(interval); // Intervall stoppen
+		clearInterval(interval);
 	});
 
 	//speichern und zum create form weiterleiten
@@ -85,23 +83,26 @@ const startTimer = () => {
 		window.location.href = `/sessions/create${queryParams}`;
 	};
 
-
-    	//aktuelles Datum
+	//aktuelles Datum
 	const getCurrentDate = () => {
 		const today = new Date();
 		return today.toISOString().split('T')[0]; // YYYY-MM-DD
 	};
 
-	// Funktion zum Ändern des Hintergrundbildes
+	// hintergrundbild ändern
 	const changeBackground = (imagePath) => {
 		selectedBackground = imagePath;
 	};
 </script>
 
 <div class="timer-container" style="background-image: url({selectedBackground});">
+
+
 	<p class="timer-display">
 		{Math.floor(time / 3600)}h {Math.floor((time % 3600) / 60)}m {time % 60}s
 	</p>
+
+
 	<div class="timer-buttons">
 		<button on:click={toggleTimer} class="btn {isRunning ? 'btn-warning' : 'btn-success'}">
 			{isRunning ? '▐▐ Pause' : '▶ Study Now'}
@@ -111,65 +112,36 @@ const startTimer = () => {
 	<button on:click={handleSaveAndCreate} class="btn btn-primary"> Save and Create Session </button>
 </div>
 
+
+
+
 <div class="background-selector">
+
+
+
 	<div class="background-options">
-		<button
-			type="button"
-			on:click={() => changeBackground('src/static/flower.jpg')}
-			on:keydown={(e) => e.key === 'Enter' && changeBackground('src/static/flower.jpg')}
-		>
-			<img
-				src="src/static/flower.jpg"
-				alt="flower"
-				class={selectedBackground === 'src/static/flower.jpg' ? 'selected' : ''}
-			/>
-		</button>
-		<button
-			type="button"
-			on:click={() => changeBackground('src/static/pflanze.jpg')}
-			on:keydown={(e) => e.key === 'Enter' && changeBackground('src/static/pflanze.jpg')}
-		>
-			<img
-				src="src/static/pflanze.jpg"
-				alt="pflanze"
-				class={selectedBackground === 'src/static/pflanze.jpg' ? 'selected' : ''}
-			/>
-		</button>
-		<button
-			type="button"
-			on:click={() => changeBackground('src/static/mond.jpg')}
-			on:keydown={(e) => e.key === 'Enter' && changeBackground('src/static/mond.jpg')}
-		>
-			<img
-				src="src/static/mond.jpg"
-				alt="mond"
-				class={selectedBackground === 'src/static/mond.jpg' ? 'selected' : ''}
-			/>
-		</button>
-		<button
-			type="button"
-			on:click={() => changeBackground('src/static/turm.jpg')}
-			on:keydown={(e) => e.key === 'Enter' && changeBackground('src/static/turm.jpg')}
-		>
-			<img
-				src="src/static/turm.jpg"
-				alt="turm"
-				class={selectedBackground === 'src/static/turm.jpg' ? 'selected' : ''}
-			/>
+
+		<button type="button" on:click={() => changeBackground('src/static/flower.jpg')}>
+			<img src="src/static/flower.jpg" alt="flower" class={selectedBackground === 'src/static/flower.jpg' ? 'selected' : ''}/>
 		</button>
 
-		<button
-			type="button"
-			on:click={() => changeBackground('src/static/stadt.jpg')}
-			on:keydown={(e) => e.key === 'Enter' && changeBackground('src/static/stadt.jpg')}
-		>
-			<img
-				src="src/static/stadt.jpg"
-				alt="stadt"
-				class={selectedBackground === 'src/static/stadt.jpg' ? 'selected' : ''}
-			/>
+		<button type="button" on:click={() => changeBackground('src/static/pflanze.jpg')}>
+			<img src="src/static/pflanze.jpg" alt="pflanze" class={selectedBackground === 'src/static/pflanze.jpg' ? 'selected' : ''}/>
+		</button>
+
+		<button type="button" on:click={() => changeBackground('src/static/mond.jpg')}>
+			<img src="src/static/mond.jpg" alt="mond" class={selectedBackground === 'src/static/mond.jpg' ? 'selected' : ''}/>
+		</button>
+
+		<button type="button" on:click={() => changeBackground('src/static/turm.jpg')}>
+			<img src="src/static/turm.jpg" alt="turm" class={selectedBackground === 'src/static/turm.jpg' ? 'selected' : ''}/>
+		</button>
+
+		<button type="button" on:click={() => changeBackground('src/static/stadt.jpg')}>
+			<img src="src/static/stadt.jpg" alt="stadt" class={selectedBackground === 'src/static/stadt.jpg' ? 'selected' : ''}/>
 		</button>
 	</div>
+    
 </div>
 
 <style>
