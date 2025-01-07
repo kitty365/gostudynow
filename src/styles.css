@@ -1,31 +1,31 @@
 /* Globale Stile */
 body {
-	font-family: Arial, Helvetica, sans-serif; /* Schriftart */
-    color: royalblue; /* Dunkles Blau für den Text */
-	margin: 0;
-	padding: 0;
-    background-color: beige;
+	font-family: Arial, Helvetica, sans-serif !important; /* Schriftart */
+    color: royalblue !important; /* Dunkles Blau für den Text */
+	margin: 0 !important;
+	padding: 0 !important;
+    background-color: beige !important;
 }
 
 h1 {
-	font-weight: bold;
-	color: rgb(255, 142, 97); /* Dunkleres Blau für Überschriften */
+	font-weight: bold !important;
+	color: rgb(255, 142, 97) !important; /* Dunkleres Blau für Überschriften */
 }
 
 h2, h3, h4 {
-    color: rgb(31, 76, 159); /* Dunkles Blau für Überschriften */
+    color: rgb(31, 76, 159) !important; /* Dunkles Blau für Überschriften */
 }
 
 
 /* Bootstrap-Überschreibungen */
 .navbar {
-	background-color: transparent!important; /* Helle Blautöne für die Navbar */
+	background-color: transparent !important; /* Helle Blautöne für die Navbar */
 }
 
 .navbar-brand {
-    color: royalblue!important; /* Dunkelblauer Text für die Navbar-Brand */
-    font-weight: 1000;
-    font-size: 3rem;
+    color: royalblue !important; /* Dunkelblauer Text für die Navbar-Brand */
+    font-weight: 1000 !important;
+    font-size: 3rem !important;
 }
 
 .navbar-brand:hover {
@@ -33,10 +33,10 @@ h2, h3, h4 {
 }
 
 .nav-link.active {
-    color: royalblue!important; /* Farbe für den aktiven Link */
-    font-weight: bold; /* Optional: Fettgedruckt */
-    font-size: larger;
-    padding-top: 25px;
+    color: royalblue !important; /* Farbe für den aktiven Link */
+    font-weight: bold !important; /* Optional: Fettgedruckt */
+    font-size: larger !important;
+    padding-top: 25px !important;
   }
   
   .nav-link:hover {
@@ -51,14 +51,14 @@ h2, h3, h4 {
 /* Sessions */
 
 .form{
-    color: rgb(31, 76, 159); /* Dunkles Blau für den Text */
+    color: rgb(31, 76, 159) !important; /* Dunkles Blau für den Text */
 }
 
 
 /* Startseite */
 
 h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 10%;
+    font-size: 3rem !important;
+    text-align: center !important;
+    margin-top: 10% !important;
 }
