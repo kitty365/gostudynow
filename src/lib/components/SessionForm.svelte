@@ -21,7 +21,7 @@
 <form method="POST" action={actionUrl}>
 	<div class="mb-3">
 		<label for="title" class="form-label">Titel</label>
-		<input id="title" name="title" class="form-control" bind:value={title} readonly required />
+		<input id="title" name="title" class="form-control" bind:value={title} />
 	</div>
 	<div class="mb-3">
 		<label for="description" class="form-label">Beschreibung</label>
