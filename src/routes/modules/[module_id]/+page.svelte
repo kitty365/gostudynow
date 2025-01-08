@@ -12,6 +12,7 @@
 <h1>{module.name}</h1>
 <div class="beschrieb">
  
+        
         <p>Inhalt: {module.inhalt}</p>
         <p>Persönliche Ziele: {module.goals}</p>
         <p>Laufzeit: {module.startDate} bis {module.endDate}</p>

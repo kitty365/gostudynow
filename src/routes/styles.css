@@ -104,11 +104,13 @@ h1 {
 }
 
 .cardius {
-    border: 2px solid #ccc !important;
+    border: 3px solid #ffffff !important;
     padding: 1rem !important;
     margin-bottom: 2rem !important;
     font-size: 20px !important;
     font-weight: bold !important;
+    border-radius: 20px;
+
 }
 
 .titel a {
@@ -124,8 +126,8 @@ h1 {
     padding: 1rem !important;
     size: 100% !important;
     background-color: rgba(65, 105, 225, 0.187) !important;
-    border: transparent !important;
     border-radius: 20px !important;
+    border: 3px solid #ffffff !important;
 }
 
 .card {
@@ -136,6 +138,9 @@ h1 {
     size: 100% !important;
     background-color: transparent !important;
     border: transparent !important;
+    border: #0008ff !important;
+    border-radius: 20px !important;
+    
 }
 
 .sagen {
@@ -184,13 +189,4 @@ h1 {
     font-weight: bolder !important;
 }
 
-.cardius .beschrieb {
-    font-size: 25px !important;
-    font-weight: bold !important;
-    padding: 1rem !important;
-    size: 100% !important;
-    border: transparent !important;
-    border-radius: 20px !important;
-    margin: 1rem !important;
-}
 

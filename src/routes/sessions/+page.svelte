@@ -69,6 +69,7 @@
 	margin-bottom: 2rem;
 	display: flex;
 	align-items: flex-start;
+
 }
 
 /* Punkt an der Timeline */
@@ -91,11 +92,12 @@
 
 .timeline-content {
 	padding: 1rem;
-	border-radius: 8px;
+	border-radius: 20px;
 	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.174);
 	width: 100%;
 	margin-left: 2.5rem;
 	background-color: rgba(113, 148, 255, 0.268);
+	border: 3px solid #ffffff;
 }
 
 </style>
