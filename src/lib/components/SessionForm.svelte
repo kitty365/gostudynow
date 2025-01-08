@@ -21,7 +21,7 @@
 <form method="POST" action={actionUrl}>
 	<div class="mb-3">
 		<label for="title" class="form-label">Titel</label>
-		<input id="title" name="title" class="form-control" bind:value={title} required />
+		<input id="title" name="title" class="form-control" bind:value={title} readonly required />
 	</div>
 	<div class="mb-3">
 		<label for="description" class="form-label">Beschreibung</label>
@@ -30,8 +30,15 @@
 	</div>
 	<div class="mb-3">
 		<label for="date" class="form-label">Datum</label>
-		<input id="date" name="date" type="date" class="form-control" bind:value={date} required />
-	</div>
+		<input
+		id="date"
+		name="date"
+		type="date"
+		class="form-control"
+		bind:value={date}
+		readonly
+		required
+	/>	</div>
 	<div class="mb-3">
 		<label for="elapsedTime" class="form-label">Dauer</label>
 		<input
