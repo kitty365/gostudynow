@@ -1,29 +1,30 @@
-/* Globale Stile */
 body {
-	font-family: Arial, Helvetica, sans-serif !important; /* Schriftart */
-    color: royalblue !important; /* Dunkles Blau für den Text */
+	font-family: Arial, Helvetica, sans-serif !important; 
+    color: #555555!important; 
 	margin: 0 !important;
-	padding: 0 !important;
-    background-color: beige !important;
+	padding: 0!important;
+    background-color: rgb(216, 216, 203) !important;
 }
 
 h1 {
 	font-weight: bold !important;
-	color: rgb(255, 142, 97) !important; /* Dunkleres Blau für Überschriften */
+	color: salmon !important; 
+    margin : 4rem !important;
+    padding: 1rem !important;
+    font-size: 4rem !important;
 }
 
-h2, h3, h4 {
-    color: rgb(31, 76, 159) !important; /* Dunkles Blau für Überschriften */
+
+text{
+    color: #555555 !important; 
 }
 
-
-/* Bootstrap-Überschreibungen */
 .navbar {
-	background-color: transparent !important; /* Helle Blautöne für die Navbar */
+	background-color: transparent !important; 
 }
 
 .navbar-brand {
-    color: royalblue !important; /* Dunkelblauer Text für die Navbar-Brand */
+    color: royalblue !important; 
     font-weight: 1000 !important;
     font-size: 3rem !important;
 }
@@ -50,15 +51,149 @@ h2, h3, h4 {
 
 /* Sessions */
 
-.form{
-    color: rgb(31, 76, 159) !important; /* Dunkles Blau für den Text */
-}
-
 
 /* Startseite */
 
-h1 {
-    font-size: 3rem !important;
-    text-align: center !important;
-    margin-top: 10% !important;
+  /* Zurück-Button */
+  .btn-secondary {
+    color: rgb(255, 255, 255);
+    background-color: #555555;
+    font-weight: bolder;
+    border: transparent;
+    border-radius: 15px;
+    width: 140px;
+    height: 44px;
+    font-size: 22px;
+    font-display: center;
+    margin-bottom: 1.5rem;
 }
+
+/* Hover-Effekt für Zurück-Button */
+.btn-secondary:hover {
+    background-color: rgb(255, 255, 255);
+    color: #555555;
+}
+
+.btn-primary{
+    color: rgb(255, 255, 255);
+    background-color: rgb(65, 105, 225);
+    font-weight: bolder;
+    border: transparent;
+    border-radius: 15px;
+    width: 140px;
+    height: 44px;
+    font-size: 22px;
+    font-display: center;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary:hover{
+    color: royalblue;
+    background-color: rgb(255, 255, 255);
+}
+
+.btn-danger{
+    color: rgba(255, 255, 255, 0.603);
+    background-color: rgba(65, 105, 225, 0.227);
+    font-weight: bolder;
+    border: rgba(65,105,225,0.277);
+    border-radius: 15px;
+    width: 140px;
+    height: 44px;
+    font-size: 23px;
+    font-display: center;
+    margin-bottom: 1.5rem;
+}
+
+.btn-danger:hover{
+    color: rgb(255, 0, 0);
+    background-color: rgba(255, 0, 0, 0.267);
+}
+
+
+.cardius {
+    border: 2px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.titel a{
+    font-size: 35PX;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+
+
+}
+
+.leccard{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding:1rem;
+    size: 100%;
+    background-color: rgb(182, 234, 104);
+    border: transparent;
+    border-radius: 20px;
+}
+
+
+.card{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding:1rem;
+    size: 100%;
+    background-color: transparent;
+    border: transparent;
+}
+
+
+.sagen{
+    font-size: 25px;
+    font-weight: bold;
+    size: 100%;
+    background-color: transparent;
+    border: transparent;
+}
+
+
+.form-label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.form-control {
+    color: royalblue;
+    font-weight: bolder;
+}
+
+.form-select {
+    color: royalblue;
+    font-weight: bolder;
+}
+
+.btn-primary {
+    background-color: rgb(75, 131, 99);
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    margin-top: 1rem;
+    border: transparent;
+    border-radius: 15px;
+    font-size: larger;
+    height: 44px;
+    width: 120px;
+    bottom: 20%;
+}
+
+.btn-primary:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(75, 131, 99);
+}
+.form {
+    color: royalblue;
+    fon-weight: bolder;
+}
+

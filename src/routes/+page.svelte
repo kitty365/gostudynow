@@ -100,12 +100,12 @@
 
 
 	<div class="timer-buttons">
-		<button on:click={toggleTimer} class="btn {isRunning ? 'btn-warning' : 'btn-success'}">
+		<button on:click={toggleTimer} class="btn {isRunning ? 'warning' : 'success'}">
 			{isRunning ? '▐▐ Pause' : '▶ Study Now'}
 		</button>
-		<button on:click={resetTimer} class="btn btn-danger">Reset Timer</button>
+		<button on:click={resetTimer} class="btn reset">Reset Timer</button>
 	</div>
-	<button on:click={handleSaveAndCreate} class="btn btn-primary"> Save and Create Session </button>
+	<button on:click={handleSaveAndCreate} class="btn createsave"> Save and Create Session </button>
 </div>
 
 
@@ -166,8 +166,12 @@
 		margin: 0.4rem;
 		border: none;
 		background-color: rgba(65, 105, 225, 0.803);
+		color:rgb(255, 255, 255);
 	}
 
+	.warning{
+		color: rgb(27, 209, 27);
+	}
 	/* Hintergrundbild-Auswahl */
 	.background-selector {
 		position: absolute;
@@ -175,6 +179,10 @@
 		right: 10px;
 		background-color: transparent;
 		padding: auto;
+	}
+
+	.reset:hover {
+		color: #ff0000;
 	}
 
 	.background-options {

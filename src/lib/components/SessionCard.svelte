@@ -8,10 +8,10 @@
         return `${hours}h ${minutes}m ${secs}s`;
     };
 </script>
+<div class="card">
 
-<div class="session-card">
-    <div class="title">
-        <a href={'/sessions/' + session._id}>{session.title}</a>
+    <div class="titel">
+        <a href={'/sessions/' + session._id} class="text-decoration-none">{session.title}</a>
     </div>
     <div>Beschreibung: {session.description || "Keine Beschreibung verfügbar"}</div>
     <div>Laufzeit: {formatTime(session.elapsedTime)}</div> <!-- Formatiert -->
@@ -19,20 +19,4 @@
 </div>
 
 
-<style>
 
-    .session-card {
-        padding: 1rem;
-        margin-bottom: 1rem;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: larger;
-    }
-
-    .title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-            cursor: pointer;
-        }
-
-</style>

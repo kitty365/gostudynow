@@ -13,6 +13,9 @@
 
 <a href="/sessions" class="btn btn-secondary mb-3">Back</a>
 
+
+<div class=cardius>
+
 <h1>{session.title}</h1>
 <div class="row mt-3">
     <div class="col">
@@ -34,8 +37,10 @@
             <!-- Löschen-Formular -->
             <form method="POST" action="?/delete" class="d-inline-block ms-2">
                 <input type="hidden" name="id" value={session._id}>
-                <button class="btn btn-danger">Delete Session</button>
+                <button class="btn btn-danger">Delete</button>
             </form>
         </div>
     </div>
+</div>
+
 </div>

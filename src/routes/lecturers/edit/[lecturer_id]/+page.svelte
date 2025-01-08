@@ -6,7 +6,7 @@
 
 <a href="/lecturers" class="btn btn-secondary mb-3">Back</a>
 
-<h1> bearbeiten</h1>
+<h1>Dozent bearbeiten</h1>
 
 <LecturerForm actionUrl="?/update" lecturer={data.lecturer}/>
 
