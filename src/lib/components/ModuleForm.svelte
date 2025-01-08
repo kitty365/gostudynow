@@ -100,7 +100,7 @@
 			type="text"
 			name="newLecturer"
 			class="form-control mt-2"
-			placeholder="Oder neuen Dozenten erstellen"
+			placeholder="Kürzel"
 			bind:value={newLecturerKuerzel}
 		/>
 		<button type="button" on:click={addLecturer}>Add</button>
