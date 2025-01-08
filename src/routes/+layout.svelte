@@ -30,7 +30,7 @@
 					<a class="nav-link active" aria-current="page" href="/modules">Module</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="/lecturers">Dozenten</a>
+					<a class="nav-link active" aria-current="page" href="/lecturers">Dozente</a>
 				</li>
 			</ul>
 		</div>

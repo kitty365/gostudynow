@@ -17,7 +17,7 @@
 	<label class="form-check-label" for="filter"> Nur laufende Module anzeigen </label>
 </div>
 <br />
-<h1>Module</h1>
+<h1>Alle Module</h1>
 <div class="container mt-3">
 	<div class="row">
 		{#each modules as module}

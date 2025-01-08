@@ -6,7 +6,7 @@
 
 </script>
 
-<h1>Dozenten</h1>
+<h1>Alle Dozente</h1>
 
 <div class="row mt-3">
   {#each data.lecturers as lecturer}
