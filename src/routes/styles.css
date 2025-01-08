@@ -8,14 +8,9 @@ body {
 
 h1 {
 	font-weight: bold !important;
-	color: salmon !important; 
+	color: rgb(255, 255, 255) !important; 
     margin : 2rem !important;
     font-size: 4rem !important;
-}
-
-
-text{
-    color: #555555 !important; 
 }
 
 .navbar {
@@ -29,7 +24,7 @@ text{
 }
 
 .navbar-brand:hover {
-    color: salmon !important; /* Farbe beim Hover */
+    color: rgb(255, 255, 255) !important; /* Farbe beim Hover */
 }
 
 .nav-link.active {
@@ -40,14 +35,13 @@ text{
   }
   
   .nav-link:hover {
-    color: salmon !important; /* Farbe beim Hover */
+    color: rgb(255, 255, 255) !important; /* Farbe beim Hover */
   }
 
   .nav-link:focus {
     color: #0008ff !important; /* Farbe beim Focus */
   }
   
-
 /* Sessions */
 
 
