@@ -17,8 +17,7 @@
 <div class=cardius>
 
 <h1>{session.title}</h1>
-<div class="row mt-3">
-    <div class="col">
+    <div class="beschrieb">
         <p>Beschreibung: {session.description || "Keine Beschreibung verfügbar"}</p>
         <p>Laufzeit: {formatTime(session.elapsedTime)}</p>
         <p>Datum: {session.date || "Kein Datum angegeben"}</p>
@@ -30,17 +29,14 @@
                 Kein Modul zugewiesen
             {/if}
         </p>
-        <div class="mt-3">
-            <!-- Bearbeiten-Button -->
-            <a href={'/sessions/edit/' + session._id} class="btn btn-primary">Bearbeiten</a>
 
-            <!-- Löschen-Formular -->
+        </div>
+            <a href={'/sessions/edit/' + session._id} class="btn btn-primary">Edit</a>
+
             <form method="POST" action="?/delete" class="d-inline-block ms-2">
                 <input type="hidden" name="id" value={session._id}>
                 <button class="btn btn-danger">Delete</button>
             </form>
         </div>
-    </div>
-</div>
 
-</div>
+

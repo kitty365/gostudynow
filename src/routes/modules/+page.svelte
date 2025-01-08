@@ -27,3 +27,11 @@
 		{/each}
 	</div>
 </div>
+
+<style>
+
+.form-check-label {
+	margin-left: 0.5rem;
+	font-size: 20px;
+}
+</style>

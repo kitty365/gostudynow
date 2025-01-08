@@ -8,22 +8,14 @@
 
 <div class="cardius">
 	<h1>{lecturer.name}</h1>
-	<div class="row mt-3">
-		<div class="col">
+		<div class="beschrieb">
 			<p>Kürzel: {lecturer.kuerzel || 'Keine Beschreibung verfügbar'}</p>
-			<p>
-				Module: {lecturer.modules || 'Kein module zugewiesen'}
-			</p>
-			<div class="mt-3">
-				<!-- Bearbeiten-Button -->
-				<a href={'/lecturers/edit/' + lecturer._id} class="btn btn-primary">Edit</a>
+			<p>	Module: {lecturer.modules || 'Kein module zugewiesen'}</p>
+            </div>
 
-				<!-- Löschen-Formular -->
+				<a href={'/lecturers/edit/' + lecturer._id} class="btn btn-primary">Edit</a>
 				<form method="POST" action="?/delete" class="d-inline-block ms-2">
 					<input type="hidden" name="id" value={lecturer._id} />
 					<button class="btn btn-danger">Delete</button>
 				</form>
-			</div>
-		</div>
-	</div>
 </div>

@@ -9,8 +9,7 @@ body {
 h1 {
 	font-weight: bold !important;
 	color: salmon !important; 
-    margin : 4rem !important;
-    padding: 1rem !important;
+    margin : 2rem !important;
     font-size: 4rem !important;
 }
 
@@ -100,6 +99,7 @@ text{
     border-radius: 15px;
     width: 140px;
     height: 44px;
+    margin-top: 1rem;
     font-size: 23px;
     font-display: center;
     margin-bottom: 1.5rem;
@@ -134,7 +134,7 @@ text{
     margin-bottom: 1rem;
     padding:1rem;
     size: 100%;
-    background-color: rgb(182, 234, 104);
+    background-color: rgba(65, 105, 225, 0.187);
     border: transparent;
     border-radius: 20px;
 }
@@ -194,6 +194,16 @@ text{
 }
 .form {
     color: royalblue;
-    fon-weight: bolder;
+    font-weight: bolder;
+}
+
+.cardius .beschrieb{
+    font-size: 25px;
+    font-weight: bold;
+    padding:1rem;
+    size: 100%;
+    border: transparent;
+    border-radius: 20px;
+    margin : 1rem !important;
 }
 
