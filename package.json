@@ -21,6 +21,8 @@
 		"vite": "^5.4.11"
 	},
 	"dependencies": {
+		"@fullcalendar/core": "^6.1.15",
+		"@fullcalendar/daygrid": "^6.1.15",
 		"bootstrap": "^5.3.3",
 		"dotenv": "^16.4.7",
 		"mongodb": "^6.12.0"

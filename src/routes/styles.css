@@ -1,8 +1,8 @@
 body {
 	font-family: Arial, Helvetica, sans-serif !important; 
-    color: #555555!important; 
+    color: #555555 !important; 
 	margin: 0 !important;
-	padding: 0!important;
+	padding: 0 !important;
     background-color: rgb(216, 216, 203) !important;
 }
 
@@ -32,172 +32,165 @@ h1 {
     font-weight: bold !important; /* Optional: Fettgedruckt */
     font-size: larger !important;
     padding-top: 25px !important;
-  }
+}
   
-  .nav-link:hover {
+.nav-link:hover {
     color: rgb(255, 255, 255) !important; /* Farbe beim Hover */
-  }
+}
 
-  .nav-link:focus {
+.nav-link:focus {
     color: #0008ff !important; /* Farbe beim Focus */
-  }
-  
-/* Sessions */
+}
 
+/* Sessions */
 
 /* Startseite */
 
-  /* Zurück-Button */
-  .btn-secondary {
-    color: rgb(255, 255, 255);
-    background-color: #555555;
-    font-weight: bolder;
-    border: transparent;
-    border-radius: 15px;
-    width: 140px;
-    height: 44px;
-    font-size: 22px;
-    font-display: center;
-    margin-bottom: 1.5rem;
+/* Zurück-Button */
+.btn-secondary {
+    color: rgb(255, 255, 255) !important;
+    background-color: #555555 !important;
+    font-weight: bolder !important;
+    border: transparent !important;
+    border-radius: 15px !important;
+    width: 140px !important;
+    height: 44px !important;
+    font-size: 22px !important;
+    font-display: center !important;
+    margin-bottom: 1.5rem !important;
 }
 
 /* Hover-Effekt für Zurück-Button */
 .btn-secondary:hover {
-    background-color: rgb(255, 255, 255);
-    color: #555555;
-}
-
-.btn-primary{
-    color: rgb(255, 255, 255);
-    background-color: rgb(65, 105, 225);
-    font-weight: bolder;
-    border: transparent;
-    border-radius: 15px;
-    width: 140px;
-    height: 44px;
-    font-size: 22px;
-    font-display: center;
-    margin-bottom: 1.5rem;
-}
-
-.btn-primary:hover{
-    color: royalblue;
-    background-color: rgb(255, 255, 255);
-}
-
-.btn-danger{
-    color: rgba(255, 255, 255, 0.603);
-    background-color: rgba(65, 105, 225, 0.227);
-    font-weight: bolder;
-    border: rgba(65,105,225,0.277);
-    border-radius: 15px;
-    width: 140px;
-    height: 44px;
-    margin-top: 1rem;
-    font-size: 23px;
-    font-display: center;
-    margin-bottom: 1.5rem;
-}
-
-.btn-danger:hover{
-    color: rgb(255, 0, 0);
-    background-color: rgba(255, 0, 0, 0.267);
-}
-
-
-.cardius {
-    border: 2px solid #ccc;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    font-size: 20px;
-    font-weight: bold;
-
-}
-
-.titel a{
-    font-size: 35PX;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-
-
-}
-
-.leccard{
-    font-size: larger;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    padding:1rem;
-    size: 100%;
-    background-color: rgba(65, 105, 225, 0.187);
-    border: transparent;
-    border-radius: 20px;
-}
-
-
-.card{
-    font-size: larger;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    padding:1rem;
-    size: 100%;
-    background-color: transparent;
-    border: transparent;
-}
-
-
-.sagen{
-    font-size: 25px;
-    font-weight: bold;
-    size: 100%;
-    background-color: transparent;
-    border: transparent;
-}
-
-
-.form-label {
-    font-weight: bold;
-    font-size: 25px;
-}
-
-.form-control {
-    color: royalblue;
-    font-weight: bolder;
-}
-
-.form-select {
-    color: royalblue;
-    font-weight: bolder;
+    background-color: rgb(255, 255, 255) !important;
+    color: #555555 !important;
 }
 
 .btn-primary {
-    background-color: rgb(75, 131, 99);
-    color: rgb(255, 255, 255);
-    font-weight: bolder;
-    margin-top: 1rem;
-    border: transparent;
-    border-radius: 15px;
-    font-size: larger;
-    height: 44px;
-    width: 120px;
-    bottom: 20%;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(65, 105, 225) !important;
+    font-weight: bolder !important;
+    border: transparent !important;
+    border-radius: 15px !important;
+    width: 140px !important;
+    height: 44px !important;
+    font-size: 22px !important;
+    font-display: center !important;
+    margin-bottom: 1.5rem !important;
 }
 
 .btn-primary:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(75, 131, 99);
-}
-.form {
-    color: royalblue;
-    font-weight: bolder;
+    color: royalblue !important;
+    background-color: rgb(255, 255, 255) !important;
 }
 
-.cardius .beschrieb{
-    font-size: 25px;
-    font-weight: bold;
-    padding:1rem;
-    size: 100%;
-    border: transparent;
-    border-radius: 20px;
-    margin : 1rem !important;
+.btn-danger {
+    color: rgba(255, 255, 255, 0.603) !important;
+    background-color: rgba(65, 105, 225, 0.227) !important;
+    font-weight: bolder !important;
+    border: rgba(65, 105, 225, 0.277) !important;
+    border-radius: 15px !important;
+    width: 140px !important;
+    height: 44px !important;
+    margin-top: 1rem !important;
+    font-size: 23px !important;
+    font-display: center !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.btn-danger:hover {
+    color: rgb(255, 0, 0) !important;
+    background-color: rgba(255, 0, 0, 0.267) !important;
+}
+
+.cardius {
+    border: 2px solid #ccc !important;
+    padding: 1rem !important;
+    margin-bottom: 2rem !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+.titel a {
+    font-size: 35px !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.leccard {
+    font-size: larger !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+    size: 100% !important;
+    background-color: rgba(65, 105, 225, 0.187) !important;
+    border: transparent !important;
+    border-radius: 20px !important;
+}
+
+.card {
+    font-size: larger !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+    size: 100% !important;
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.sagen {
+    font-size: 25px !important;
+    font-weight: bold !important;
+    size: 100% !important;
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.form-label {
+    font-weight: bold !important;
+    font-size: 25px !important;
+}
+
+.form-control {
+    color: royalblue !important;
+    font-weight: bolder !important;
+}
+
+.form-select {
+    color: royalblue !important;
+    font-weight: bolder !important;
+}
+
+.btn-primary {
+    background-color: rgb(75, 131, 99) !important;
+    color: rgb(255, 255, 255) !important;
+    font-weight: bolder !important;
+    margin-top: 1rem !important;
+    border: transparent !important;
+    border-radius: 15px !important;
+    font-size: larger !important;
+    height: 44px !important;
+    width: 120px !important;
+    bottom: 20% !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(75, 131, 99) !important;
+}
+
+.form {
+    color: royalblue !important;
+    font-weight: bolder !important;
+}
+
+.cardius .beschrieb {
+    font-size: 25px !important;
+    font-weight: bold !important;
+    padding: 1rem !important;
+    size: 100% !important;
+    border: transparent !important;
+    border-radius: 20px !important;
+    margin: 1rem !important;
 }
 
